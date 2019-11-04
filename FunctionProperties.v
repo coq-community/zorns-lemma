@@ -10,6 +10,20 @@ Inductive invertible {X Y:Type} (f:X->Y) : Prop :=
   (forall x:X, g (f x) = x) -> (forall y:Y, f (g y) = y) ->
   invertible f.
 
+Lemma injective_composition
+  {X Y Z : Type}
+  (f : X -> Y)
+  (g : Y -> Z) :
+  FunctionProperties.injective f ->
+  FunctionProperties.injective g ->
+  FunctionProperties.injective (fun x => g (f x)).
+Proof.
+  intros Hf Hg x1 x2 eq.
+  apply Hf.
+  apply Hg.
+  assumption.
+Qed.
+
 Require Import Description.
 Require Import FunctionalExtensionality.
 

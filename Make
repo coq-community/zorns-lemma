@@ -2,6 +2,7 @@
 Cardinals.v
 Classical_Wf.v
 CountableTypes.v
+CountableProduct.v
 CSB.v
 DecidableDec.v
 DependentTypeChoice.v
